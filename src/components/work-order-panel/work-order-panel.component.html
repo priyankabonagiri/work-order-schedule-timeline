@@ -1,0 +1,81 @@
+<form [formGroup]="workOrderForm" (ngSubmit)="onSubmit()" class="h-100 d-flex flex-column p-4 work-order-form">
+
+  <!-- Header -->
+  <div class="d-flex justify-content-between align-items-center border-bottom pb-2 mb-3">
+    <h5 class="mb-0">Work Order Details</h5>
+
+    <div class="d-flex gap-2">
+      <button type="button" class="btn btn-outline-secondary" (click)="onCancel()">
+        Cancel
+      </button>
+      <button type="submit" class="btn btn-primary">
+         {{ isEditing ? 'Update' : 'Create' }}
+      </button>
+    </div>
+  </div>
+
+  <!-- Body -->
+  <div class="flex-grow-1">
+    <!-- Work Center Name -->
+    <div class="mb-3">
+      <label class="form-label">Work Center Name</label>
+      <select class="form-select" formControlName="workCenterId">
+        <option [ngValue]="null" disabled>Select Work Center</option>
+        <option *ngFor="let wc of workCenters()" [value]="wc.id">
+          {{ wc.name }}
+        </option>
+      </select>
+    </div>
+
+    <!-- Work Order Name -->
+    <div class="mb-3">
+      <label class="form-label">Work Order Name</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="name"
+        placeholder="Enter work order name"
+      />
+      <div class="text-danger small" *ngIf="workOrderForm.get('name')?.touched && workOrderForm.get('name')?.invalid">
+        Work order name is required
+      </div>
+    </div>
+
+    <!-- Status -->
+    <div class="mb-3">
+      <label class="form-label">Status</label>
+      <select class="form-select" formControlName="status">
+        <!-- placeholder option -->
+        <option [ngValue]="null" disabled>Select status</option>
+        
+        <!-- actual statuses -->
+        <option *ngFor="let status of statuses" [ngValue]="status.value">
+          {{ status.label }}
+        </option>
+      </select>
+    </div>
+
+
+    <!-- Start Date -->
+    <div class="mb-3">
+      <label class="form-label">Start Date</label>
+      <input
+          type="date"
+          class="form-control"
+          formControlName="startDate"
+        />
+    </div>
+
+    <!-- End Date -->
+    <div class="mb-3">
+      <label class="form-label">End Date</label>
+      <input
+          type="date"
+          class="form-control"
+          formControlName="endDate"
+        />
+    </div>
+
+
+  </div>
+</form>

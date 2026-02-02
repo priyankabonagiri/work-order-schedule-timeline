@@ -1,0 +1,27 @@
+<div class="timeline-row">
+    <div class="timeline-row-left">
+        <div class="wc-name">{{ workCenter.name }}</div>
+    </div>
+
+    <div class="timeline-row-right">
+         <!-- Grid cells -->
+        @for (i of [].constructor(config().unitsVisible); let idx = $index; track idx) {
+        <div
+            class="timeline-cell"
+            [style.width.px]="config().unitWidth">
+        </div>
+        }
+
+        <!-- Work order cards (ONCE) -->
+        @for (workOrder of visibleWorkOrders(); track workCenter.id + workOrder.id + config().zoomLevel + config().startDate.getTime()) {
+            <!-- {{ workOrder.name }} -->
+        <app-work-order-card
+            [workOrder]="workOrder"
+            [config]="config()"
+            (edit)="workOrderEdit.emit(workOrder)"
+            (delete)="workOrderDelete.emit(workOrder)">
+        </app-work-order-card>
+        }
+    </div>
+</div>
+

@@ -1,0 +1,67 @@
+.timeline-wrapper {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #fff;
+    font-family: system-ui, sans-serif;
+    padding: 24px;
+}
+
+.page-header {
+    h1 {
+        color: rgba(3, 9, 41, 1);
+        font-family: CircularStd-Medium;
+        font-size: 24px;
+        font-weight: 500;
+        font-style: medium;
+    }
+}
+
+.filter-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.label-text {
+    width: 59px;
+    // height: 16px;
+    color: rgba(104, 113, 150, 1);
+    font-family: CircularStd-Book;
+    font-size: 13px;
+    font-weight: 400;
+    font-style: book;
+}
+
+.dropdown {
+    width: 71px;
+    color: rgba(62, 64, 219, 1);
+    font-family: CircularStd-Medium;
+    font-size: 13px;
+    font-weight: 500;
+    font-style: medium;
+}
+
+
+.drawer-container {
+  height: 100vh;        /* Full viewport height */
+}
+
+.drawer {
+  height: 100%;         /* Match container height */
+  width: 520px;
+  box-shadow: -4px 0 16px rgba(0,0,0,0.2);
+}
+
+.mat-drawer-content {
+  transition: filter 0.3s ease, pointer-events 0.3s ease;
+}
+
+.blurred {
+  filter: blur(4px);
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.6;
+}
+

@@ -1,0 +1,49 @@
+<mat-drawer-container class="drawer-container">
+  <mat-drawer #sideNav mode="side" opened="false"
+  (openedChange)="drawerOpen = $event" [position]="'end'" class="drawer">
+    <app-work-order-panel
+      (closeDrawer)="closeSideNav()"
+      [workOrder]="selectedWorkOrder">
+    </app-work-order-panel>
+  </mat-drawer>
+  <mat-drawer-content [class.blurred]="drawerOpen">
+    <div class="timeline-wrapper">
+  <header class="page-header">
+    <h1>Work Orders</h1>
+  </header>
+  <main class="page-content">
+    <div class="filter-row">
+      <span class="label-text">Timescale:</span>
+      <select class="dropdown" [value]="zoomLevel()" (change)="zoomLevel.set($any($event.target).value)">
+        <option value="day">Hour</option>
+        <option value="week">Day</option>
+        <option value="month">Week</option>
+        <option value="year">Month</option>
+      </select>
+      <button type="button" class="btn btn-link" (click)="createNewWorkOrder()">
+        + New Work Order
+      </button>
+    </div>
+    <div>
+      <!-- Timeline Header -->
+      <app-timeline-header [config]="config" />
+
+      <!-- Rows -->
+      <div class="timeline-body">
+
+        <!-- Work Center Row -->
+        @for (wc of workCenters(); track wc.id) {
+        <app-work-center-row [workCenter]="wc"
+          [workOrders]="workOrdersByCenter().get(wc.id) ?? []"
+          [config]="config()"
+          (workOrderEdit)="handleWorkOrderEdit($event)"
+          (workOrderDelete)="handleWorkOrderDelete($event)">
+        </app-work-center-row>
+        }
+
+      </div>
+    </div>
+  </main>
+</div>
+  </mat-drawer-content>
+</mat-drawer-container>

@@ -1,0 +1,138 @@
+.work-order-card {
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 8px;
+  border-radius: 8px;
+  background: #f9fafb;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.2s;
+
+  &:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+  }
+}
+
+.work-order-name {
+  text-overflow: ellipsis;
+  padding-top: 10px;
+  font-family: CircularStd-Book;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.work-order-status {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.more-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 22px;
+  line-height: 1;
+  padding: 4px 8px;
+}
+
+.more-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+.hover-controls {
+  display: flex;
+  gap: 4px;
+
+  .icon-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+  }
+}
+
+/* Example status colors */
+.bg-status-open { background: #facc15; color: #92400e; }
+.bg-status-in-progress { background: #3b82f6; color: #ffffff; }
+.bg-status-complete { 
+    border-radius: 5px;
+    background-color: rgba(225, 255, 204, 1);
+    color: rgba(8, 162, 104, 1);
+    font-family: CircularStd-Book;
+    font-size: 14px;
+    font-weight: 400;
+ }
+.bg-status-blocked { background: #ef4444; color: #ffffff; }
+
+.bg-card-open { 
+    box-shadow: 0 0 0 1px rgb(179, 218, 250);
+    border-radius: 8px;
+    background-color: rgb(243, 253, 255);
+
+}
+.bg-card-in-progress { 
+    box-shadow: 0 0 0 1px rgba(222, 224, 255, 1);
+    border-radius: 8px;
+    background-color: rgba(237, 238, 255, 1);
+ }
+.bg-card-complete { 
+    box-shadow: 0 0 0 1px rgba(209, 250, 179, 1);
+    border-radius: 8px;
+    background-color: rgba(248, 255, 243, 1);
+ }
+.bg-card-blocked { 
+    box-shadow: 0 0 0 1px rgba(255, 245, 207, 1);
+    border-radius: 8px;
+    background-color: rgba(255, 252, 241, 1);
+}
+
+
+
+/* Action container */
+.actions {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  display: flex;
+  gap: 4px;
+
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-4px);
+  transition: all 0.15s ease;
+}
+
+/* Show on hover */
+.more-btn:hover .actions {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* Buttons */
+.icon-btn {
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  border: none;
+  background: rgba(255, 255, 255, 0.9);
+  color: #111;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.icon-btn:hover {
+  background: #fff;
+}
+
+.icon-btn.danger:hover {
+  background: #fee2e2;
+  color: #b91c1c;
+}

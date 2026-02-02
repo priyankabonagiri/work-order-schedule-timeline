@@ -1,0 +1,16 @@
+<div class="work-order-card group" [style.left.px]="position().left" [style.width.px]="position().width - 4"
+  (click)="onClick()" [ngClass]="cardStyle">
+  <div class="flex items-center gap-2 min-w-0 flex-1 work-order-name">
+    <span>{{ workOrder.name }}</span>
+  </div>
+  <div>
+    <span class="work-order-status" [ngClass]="status.className">{{ status.label }}</span>
+    <button type="button" class="icon-btn" (click)="edit.emit(workOrder)">
+      ✏️
+    </button>
+
+    <button type="button" class="icon-btn danger" (click)="delete.emit(workOrder)">
+      🗑️
+    </button>
+  </div>
+</div>

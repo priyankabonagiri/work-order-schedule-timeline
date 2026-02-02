@@ -1,0 +1,11 @@
+<div class="timeline-header">
+    <div class="timeline-header-left">
+        Work Center
+    </div>
+
+    <div class="timeline-header-right">
+        @for (unit of units(); track unit.key) {
+            <div class="timeline-header-cell" [style.width.px]="config().unitWidth"> {{ unit.label }} {{ unit.subLabel }}</div>
+        }
+    </div>
+</div>

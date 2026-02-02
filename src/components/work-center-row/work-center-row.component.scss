@@ -1,0 +1,57 @@
+.timeline-row {
+    display: flex;
+    min-height: 56px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+/* Left column */
+.timeline-row-left {
+    width: 138px;
+    height: 16px;
+    color: rgba(104, 113, 150, 1);
+    font-family: CircularStd-Regular;
+    font-size: 14px;
+    font-weight: 500;
+    padding-top: 20px;
+}
+
+.wc-name {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+/* Right timeline */
+.timeline-row-right {
+    position: relative;
+    display: flex;
+    flex: 1;
+    overflow-x: auto;
+    background: #fff;
+}
+
+/* Background grid cells */
+.timeline-cell {
+    min-width: 86px;
+    // border: 1px solid;
+}
+
+/* ---------- WORK ORDER BLOCK ---------- */
+
+.work-order {
+    position: absolute;
+    top: 12px;
+    height: 32px;
+    padding: 4px 10px;
+    background: #3b82f6;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.work-order:hover {
+    background: #2563eb;
+}
