@@ -127,7 +127,7 @@ export class WorkOrderStore {
       },
     ];
 
-    this._workOrders$.next(mockWorkOrders);
+    // this._workOrders$.next(mockWorkOrders);
   }
 
   /** Snapshot getter */

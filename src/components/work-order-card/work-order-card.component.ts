@@ -65,17 +65,7 @@ export class WorkOrderCardComponent {
     const end = dayjs(wo.endTime);
     const startDate = dayjs(cfg.startDate);
 
-    if (cfg.zoomLevel === 'day') {
-      const startHour = start.hour() + start.minute() / 60;
-      const endHour = end.hour() + end.minute() / 60;
-
-      const dayStart = 6;
-
-      left = (startHour - dayStart) * cfg.unitWidth;
-      width = (endHour - startHour) * cfg.unitWidth;
-    }
-
-    else if (cfg.zoomLevel === 'week') {
+    if (cfg.zoomLevel === 'week') {
       // Week starts on Monday
       const weekStart = startDate.startOf('isoWeek').toDate(); // Monday Jan 26
 

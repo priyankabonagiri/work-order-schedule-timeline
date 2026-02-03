@@ -15,7 +15,6 @@
     <div class="filter-row">
       <span class="label-text">Timescale:</span>
       <select class="dropdown" [value]="zoomLevel()" (change)="zoomLevel.set($any($event.target).value)">
-        <!-- <option value="day">Hour</option> -->
         <option value="week">Day</option>
         <option value="month">Week</option>
         <option value="year">Month</option>
